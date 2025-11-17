@@ -58,7 +58,7 @@ public class StudentManagementApp {
             case 0:
                 return false;
             default:
-                System.out.println("\n❌ Invalid choice! Please try again.\n");
+                System.out.println("\n Invalid choice! Please try again.\n");
         }
 
         return true;
@@ -85,7 +85,7 @@ public class StudentManagementApp {
         String email = getStringInput("Enter student email: ");
 
         if (studentManager.existsByEmail(email)) {
-            System.out.println("❌ Error: A student with this email already exists!\n");
+            System.out.println(" Error: A student with this email already exists!\n");
             return;
         }
 
@@ -95,7 +95,7 @@ public class StudentManagementApp {
         if (studentManager.addStudent(name, email, age, course)) {
             System.out.println("✓ Student added successfully!\n");
         } else {
-            System.out.println("❌ Error: Failed to add student!\n");
+            System.out.println(" Error: Failed to add student!\n");
         }
     }
 
@@ -139,7 +139,7 @@ public class StudentManagementApp {
                 searchByCourse();
                 break;
             default:
-                System.out.println("❌ Invalid search type!\n");
+                System.out.println(" Invalid search type!\n");
         }
     }
 
@@ -154,7 +154,7 @@ public class StudentManagementApp {
             System.out.println("─".repeat(100));
             System.out.println();
         } else {
-            System.out.println("❌ No student found with ID: " + id + "\n");
+            System.out.println(" No student found with ID: " + id + "\n");
         }
     }
 
@@ -174,7 +174,7 @@ public class StudentManagementApp {
 
     private static void displaySearchResults(List<Student> students, String criteria) {
         if (students.isEmpty()) {
-            System.out.println("❌ No students found matching " + criteria + "\n");
+            System.out.println(" No students found matching " + criteria + "\n");
             return;
         }
 
@@ -196,7 +196,7 @@ public class StudentManagementApp {
         Optional<Student> studentOpt = studentManager.findStudentById(id);
 
         if (!studentOpt.isPresent()) {
-            System.out.println("❌ No student found with ID: " + id + "\n");
+            System.out.println(" No student found with ID: " + id + "\n");
             return;
         }
 
@@ -213,7 +213,7 @@ public class StudentManagementApp {
         if (studentManager.updateStudent(id, name, email, age, course)) {
             System.out.println("✓ Student updated successfully!\n");
         } else {
-            System.out.println("❌ Error: Failed to update student (email might already exist)!\n");
+            System.out.println(" Error: Failed to update student (email might already exist)!\n");
         }
     }
 
@@ -224,7 +224,7 @@ public class StudentManagementApp {
         Optional<Student> student = studentManager.findStudentById(id);
 
         if (!student.isPresent()) {
-            System.out.println("❌ No student found with ID: " + id + "\n");
+            System.out.println(" No student found with ID: " + id + "\n");
             return;
         }
 
@@ -238,7 +238,7 @@ public class StudentManagementApp {
             if (studentManager.deleteStudent(id)) {
                 System.out.println("✓ Student deleted successfully!\n");
             } else {
-                System.out.println("❌ Error: Failed to delete student!\n");
+                System.out.println(" Error: Failed to delete student!\n");
             }
         } else {
             System.out.println("ℹ Delete operation cancelled.\n");
@@ -263,7 +263,7 @@ public class StudentManagementApp {
                 String input = scanner.nextLine().trim();
                 return Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid input! Please enter a valid number.");
+                System.out.println(" Invalid input! Please enter a valid number.");
             }
         }
     }
